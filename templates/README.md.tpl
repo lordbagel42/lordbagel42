@@ -1,22 +1,23 @@
-### Hi there 👋
-
-Want your own awesome profile page? Check out [markscribe](https://github.com/charmbracelet/markscribe)!
-
-#### 🌱 Check out what I'm currently working on
-{{range recentRepos 10}}
-- [{{.Name}}]({{.URL}}) - {{.Description}}
+#### 👷 The latest repos I've pushed to
+{{range recentContributions 8}}
+- [`{{.Repo.Name}}`]({{.Repo.URL}}) - _"{{.Repo.Description}}"_ **({{humanize .OccurredAt}})**
 {{- end}}
 
-#### 🔭 Latest releases I've contributed to
-{{range recentReleases 10}}
-- [{{.Name}}]({{.URL}}) ([{{.LastRelease.TagName}}]({{.LastRelease.URL}}), {{humanize .LastRelease.PublishedAt}}) - {{.Description}}
+#### ⌨️ My latest projects
+{{range recentCreatedRepos "taciturnaxolotl" 4}}
+- [`{{.Name}}`]({{.URL}}) - _"{{.Description}}"_
 {{- end}}
 
-#### 👯 Check out some of my recent followers
-{{range followers 5}}
-- [{{.Login}}]({{.URL}})
-{{- end}}
+#### 🗒️ the latest posts from my [blog](https://dunkirk.sh)
+{{range rss "https://dunkirk.sh/rss.xml" 3}}
+- [`{{.Title}}`]({{.URL}}) **({{humanize .PublishedAt}})**
+{{end}}
 
-#### 💬 Feedback
 
-Say Hello, I don't bite!
+#### 📡 my [_`hackatime`_](https://waka.hackclub.com) stats from the last week
+
+```text
+{{ wakatimeDoubleCategoryBar "💾 Languages:" wakatimeData.Languages "💼 Projects:" wakatimeData.Projects 5 }}
+
+Total: {{ wakatimeData.HumanReadableTotal }}
+```
