@@ -12,12 +12,3 @@
 {{range rss "https://dunkirk.sh/rss.xml" 3}}
 - [`{{.Title}}`]({{.URL}}) **({{humanize .PublishedAt}})**
 {{end}}
-
-
-#### 📡 my [_`hackatime`_](https://waka.hackclub.com) stats from the last week
-
-```text
-{{ wakatimeDoubleCategoryBar "💾 Languages:" wakatimeData.Languages "💼 Projects:" wakatimeData.Projects 5 }}
-
-Total: {{ wakatimeData.HumanReadableTotal }}
-```
